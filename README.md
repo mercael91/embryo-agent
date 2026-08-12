@@ -226,6 +226,10 @@ The Ethical Compass is **hardcoded** — not a prompt, not a parameter. Only the
 - **Telegram:** [@mercael](https://t.me/mercael)
 - **Bot:** [@HermesTunnel_bot](https://t.me/HermesTunnel_bot)
 
+## Related Projects
+
+- **[LikAI](https://github.com/mercael91/likai)** — AI content platform that learns your writing style. 7-pass personality analysis, style mimicry, anti-AI post-processing.
+
 ---
 
 <div align="center">
