@@ -1,0 +1,12 @@
+# Ignore everything
+*
+
+# Except documentation
+!.gitignore
+!README.md
+!ARCHITECTURE.md
+!docs/
+!docs/**
+!screenshots/
+!screenshots/**
+!LICENSE
