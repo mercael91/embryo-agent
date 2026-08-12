@@ -228,7 +228,8 @@ The Ethical Compass is **hardcoded** — not a prompt, not a parameter. Only the
 
 ## Related Projects
 
-- **[LikAI](https://github.com/mercael91/likai)** — AI content platform that learns your writing style. 7-pass personality analysis, style mimicry, anti-AI post-processing.
+- **[Nexus Analytica](https://github.com/mercael91/nexus-analitica)** — AI news intelligence with consensus analysis and scenario forecasting.
+- **[LikAI](https://github.com/mercael91/likai)** — AI content platform with 7-pass personality analysis and style mimicry.
 
 ---
 
