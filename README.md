@@ -88,9 +88,11 @@ It's not a chatbot. It's not a wrapper. It's a **self-improving system** with it
 
 ### PR Track Record
 
+**[→ Full PR list with links and stats](PR_TRACK_RECORD.md)**
+
 | Repository | PRs Submitted | PRs Merged | Conversion |
 |-----------|--------------|------------|------------|
-| bernstein | 9 | 9 | **100%** |
+| bernstein (sipyourdrink-ltd) | 9 | 9 | **100%** |
 | PersonalClaw | 1 | 1 | **100%** |
 | PyScrappy | 1 | 1 | **100%** |
 | **Total** | **11** | **11** | **100%** |
