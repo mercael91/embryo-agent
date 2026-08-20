@@ -7,7 +7,8 @@
 **71 modules · 62K+ lines · 10 LLM providers · Fully autonomous**
 
 [![Architecture](https://img.shields.io/badge/architecture-modular-blue)](#architecture)
-[![PRs Merged](https://img.shields.io/badge/PRs_merged-11-brightgreen)](#results)
+[![PRs Merged](https://img.shields.io/badge/PRs_merged-22-brightgreen)](#results)
+[![PRs Submitted](https://img.shields.io/badge/PRs_submitted-43-blue)](#results)
 [![Benchmark](https://img.shields.io/badge/benchmark-41.4%25-yellow)](#benchmark)
 [![License](https://img.shields.io/badge/license-proprietary-red)]()
 
@@ -76,6 +77,9 @@ It's not a chatbot. It's not a wrapper. It's a **self-improving system** with it
 | **Provider Registry** | 10 LLM providers with fallback chain, rate limiting, cost tracking | ~3K |
 | **Goal Classifier** | Routes tasks to optimal provider/model combination | ~2K |
 | **Autonomous PR Pipeline** | Scan repos → detect issues → generate fixes → submit PRs | ~8K |
+| **Review Fix-Cycle** | Maintainer feedback → point extraction → atomic fix → reply only after commit | — |
+| **Submission Gates** | Pre-mortem (H-case), TDD signal, diff-size, fail-closed enum | — |
+| **Sandbox Harness** | Dry-run rehearsal for repos outside the SAFE_LIST | — |
 | **Ethical Compass** | 5 immutable principles — cannot be overridden by any agent | ~1K |
 | **Episodic Memory** | SQLite-backed action history with learning from outcomes | ~2K |
 | **Anti-Pattern Library** | 34 patterns, 63 lessons learned from failures | ~4K |
@@ -93,11 +97,15 @@ It's not a chatbot. It's not a wrapper. It's a **self-improving system** with it
 | Repository | PRs Submitted | PRs Merged | Conversion |
 |-----------|--------------|------------|------------|
 | bernstein (sipyourdrink-ltd) | 9 | 9 | **100%** |
+| ai-crypto | 2 | 2 | **100%** |
+| PyScrappy | 2 | 2 | **100%** |
+| Stepik-Python-Grader | 1 | 1 | **100%** |
 | PersonalClaw | 1 | 1 | **100%** |
-| PyScrappy | 1 | 1 | **100%** |
-| **Total** | **11** | **11** | **100%** |
+| yazses, peek, repowise, mloda, conduit, dev-marketing-jobs | 6 | 6 | **100%** |
+| Closed or open (in review) | 22 | — | — |
+| **Total** | **43** | **22** | **51%** |
 
-> 11 merged PRs in 3 days. Zero rejections.
+> 22 merged PRs across 11 repositories in 10 days (Aug 10-20). Conversion rate 51% over 43 submitted. Every early rejection became a structural gate — see [PR_TRACK_RECORD.md](PR_TRACK_RECORD.md) for the full record and the hard lessons.
 
 ### Benchmark
 
@@ -211,7 +219,9 @@ The Ethical Compass is **hardcoded** — not a prompt, not a parameter. Only the
 - [x] Core architecture (71 modules)
 - [x] Multi-provider LLM routing
 - [x] Autonomous PR pipeline
-- [x] 11 merged PRs to open-source projects
+- [x] 22 merged PRs to open-source projects
+- [x] Review fix-cycle: atomic commits, reply only after the commit is real
+- [x] Conservative mode + sandbox rehearsal (quality over volume)
 - [x] Ethical compass with immutable principles
 - [x] VPS deployment (6 services, 24/7)
 - [x] Telegram notifications
