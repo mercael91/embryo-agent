@@ -177,8 +177,6 @@ Lessons:         63 learned from autonomous operation
 | Dashboard | 🟢 24/7 | Live monitoring |
 | Autonomous Pipeline | 🟢 24/7 | PR generation & submission |
 
-**VPS:** REDACTED-HOST · **Bot:** REDACTED-BOT
-
 ---
 
 ## Ethical Framework
