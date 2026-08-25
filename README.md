@@ -177,8 +177,6 @@ Lessons:         63 learned from autonomous operation
 | Dashboard | 🟢 24/7 | Live monitoring |
 | Autonomous Pipeline | 🟢 24/7 | PR generation & submission |
 
-**VPS:** 109.122.194.188 · **Bot:** @HermesTunnel_bot
-
 ---
 
 ## Ethical Framework
