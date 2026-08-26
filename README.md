@@ -4,7 +4,7 @@
 
 ### An Autonomous Agent That Learns to Contribute to Open Source
 
-**71 modules · 62K+ lines · 10 LLM providers · Fully autonomous**
+**142 modules · 104K+ lines · 10 LLM providers · Fully autonomous**
 
 [![Architecture](https://img.shields.io/badge/architecture-modular-blue)](#architecture)
 [![PRs Merged](https://img.shields.io/badge/PRs_merged-25-brightgreen)](#results)
@@ -46,8 +46,8 @@ It's not a chatbot. It's not a wrapper. It's a **self-improving system** with it
 │                            │                                │
 │                   ┌────────┴────────┐                       │
 │                   │  ORCHESTRATOR   │                       │
-│                   │  71 modules     │                       │
-│                   │  62K+ lines     │                       │
+│                   │  142 modules     │                       │
+│                   │  104K+ lines     │                       │
 │                   └────────┬────────┘                       │
 │                            │                                │
 │         ┌──────────────────┼───────────────────┐            │
@@ -223,7 +223,7 @@ The Ethical Compass is **hardcoded** — not a prompt, not a parameter. Only the
 
 ## Project Status
 
-- [x] Core architecture (71 modules)
+- [x] Core architecture (142 modules)
 - [x] Multi-provider LLM routing
 - [x] Autonomous PR pipeline
 - [x] 25 merged PRs across 14 open-source repos
