@@ -7,9 +7,9 @@
 **71 modules · 62K+ lines · 10 LLM providers · Fully autonomous**
 
 [![Architecture](https://img.shields.io/badge/architecture-modular-blue)](#architecture)
-[![PRs Merged](https://img.shields.io/badge/PRs_merged-22-brightgreen)](#results)
-[![PRs Submitted](https://img.shields.io/badge/PRs_submitted-43-blue)](#results)
-[![Benchmark](https://img.shields.io/badge/benchmark-41.4%25-yellow)](#benchmark)
+[![PRs Merged](https://img.shields.io/badge/PRs_merged-25-brightgreen)](#results)
+[![PRs Submitted](https://img.shields.io/badge/PRs_submitted-93-blue)](#results)
+[![Repos](https://img.shields.io/badge/repos-14-brightgreen)](#results)
 [![License](https://img.shields.io/badge/license-proprietary-red)]()
 
 </div>
@@ -80,6 +80,7 @@ It's not a chatbot. It's not a wrapper. It's a **self-improving system** with it
 | **Review Fix-Cycle** | Maintainer feedback → point extraction → atomic fix → reply only after commit | — |
 | **Submission Gates** | Pre-mortem (H-case), TDD signal, diff-size, fail-closed enum | — |
 | **Sandbox Harness** | Dry-run rehearsal for repos outside the SAFE_LIST | — |
+| **Auto-Reopen** | Detects maintainer response after auto-close → reopens PR | — |
 | **Ethical Compass** | 5 immutable principles — cannot be overridden by any agent | ~1K |
 | **Episodic Memory** | SQLite-backed action history with learning from outcomes | ~2K |
 | **Anti-Pattern Library** | 34 patterns, 63 lessons learned from failures | ~4K |
@@ -96,24 +97,25 @@ It's not a chatbot. It's not a wrapper. It's a **self-improving system** with it
 
 | Repository | PRs Submitted | PRs Merged | Conversion |
 |-----------|--------------|------------|------------|
-| bernstein (sipyourdrink-ltd) | 9 | 9 | **100%** |
-| ai-crypto | 2 | 2 | **100%** |
-| PyScrappy | 2 | 2 | **100%** |
+| bernstein (sipyourdrink-ltd) | 12 | 9 | 75% |
+| ai-crypto (vinhnguyenthanhdn) | 2 | 2 | **100%** |
+| PyScrappy (mldsveda) | 2 | 2 | **100%** |
+| yazses (MSKazemi) | 2 | 2 | **100%** |
 | Stepik-Python-Grader | 1 | 1 | **100%** |
 | PersonalClaw | 1 | 1 | **100%** |
-| yazses, peek, repowise, mloda, conduit, dev-marketing-jobs | 6 | 6 | **100%** |
-| Closed or open (in review) | 22 | — | — |
-| **Total** | **43** | **22** | **51%** |
+| hermes-webui, pythonlings, AynOps, peek, repowise, mloda, conduit, dev-marketing-jobs | 8 | 6 | 75% |
+| Other repos (closed/rejected) | 65 | — | — |
+| **Total** | **93** | **25** | **27%** |
 
-> 22 merged PRs across 11 repositories in 10 days (Aug 10-20). Conversion rate 51% over 43 submitted. Every early rejection became a structural gate — see [PR_TRACK_RECORD.md](PR_TRACK_RECORD.md) for the full record and the hard lessons.
+> 25 merged PRs across 14 repositories (Aug 10–26). Conversion rate 27% over 93 submitted — every rejection became a structural gate. See [PR_TRACK_RECORD.md](PR_TRACK_RECORD.md) for the full record and the hard lessons.
 
-### Benchmark
+### Auto-Reopen Flow
 
 ```
-Benchmark Score: 41.4% (7 frozen tasks)
-Overall Score:   77/100
-Anti-patterns:   34 identified and cataloged
-Lessons:         63 learned from autonomous operation
+PR >7 days no response → auto-close
+  ↓ maintainer responds (reopen, review, merge)
+Pipeline detects → auto-reopen → ready for review
+  ↓ 7 days silence → closes again
 ```
 
 ### Key Anti-Patterns Discovered
@@ -121,6 +123,7 @@ Lessons:         63 learned from autonomous operation
 1. **Strategies must modify PIPELINE, not prompts** — prompt-level changes cause -5.7% regression
 2. **`gate_blocked` root cause = wrong routing** — not a strict gate problem
 3. **No-op fix detection** — compare branch vs parent before submitting PR
+4. **Mass comment dedup** — API returns DESC; [-1] is OLDEST, not newest
 
 ---
 
@@ -158,7 +161,13 @@ Lessons:         63 learned from autonomous operation
                     └────────┬────────┘
                              │
                     ┌────────▼────────┐
-                    │  6. NOTIFY      │
+                    │  6. MONITOR     │
+                    │  Auto-close     │
+                    │  Auto-reopen    │
+                    └────────┬────────┘
+                             │
+                    ┌────────▼────────┐
+                    │  7. NOTIFY      │
                     │  Telegram msg   │
                     │  Dashboard log  │
                     └─────────────────┘
@@ -204,10 +213,10 @@ The Ethical Compass is **hardcoded** — not a prompt, not a parameter. Only the
 ## Tech Stack
 
 - **Language:** Python
-- **LLM Providers:** 10 (DeepSeek, Claude, Ollama local models, Shprotoness, etc.)
+- **LLM Providers:** 10 (DeepSeek, Xiaomi Mimo, Mistral, Claude proxy, Ollama local models, etc.)
 - **Storage:** SQLite (episodic memory, anti-patterns, lessons)
 - **Communication:** Telegram Bot API, REST, WebSocket
-- **Deployment:** VPS (Linux), always-on daemon
+- **Deployment:** Linux VPS, always-on daemon, systemd services
 - **Monitoring:** Custom dashboard with SSE streaming
 
 ---
@@ -217,8 +226,9 @@ The Ethical Compass is **hardcoded** — not a prompt, not a parameter. Only the
 - [x] Core architecture (71 modules)
 - [x] Multi-provider LLM routing
 - [x] Autonomous PR pipeline
-- [x] 22 merged PRs to open-source projects
+- [x] 25 merged PRs across 14 open-source repos
 - [x] Review fix-cycle: atomic commits, reply only after the commit is real
+- [x] Auto-reopen: detect maintainer response after auto-close
 - [x] Conservative mode + sandbox rehearsal (quality over volume)
 - [x] Ethical compass with immutable principles
 - [x] VPS deployment (6 services, 24/7)
