@@ -4,10 +4,10 @@
 
 ### An Autonomous Agent That Learns to Contribute to Open Source
 
-**142 modules · 104K+ lines · 10 LLM providers · Fully autonomous**
+**258 modules · 102K lines · 10 LLM providers · Self-directed**
 
 [![Architecture](https://img.shields.io/badge/architecture-modular-blue)](#architecture)
-[![PRs Merged](https://img.shields.io/badge/PRs_merged-25-brightgreen)](#results)
+[![PRs Merged](https://img.shields.io/badge/PRs_merged-27-brightgreen)](#results)
 [![PRs Submitted](https://img.shields.io/badge/PRs_submitted-93-blue)](#results)
 [![Repos](https://img.shields.io/badge/repos-14-brightgreen)](#results)
 [![License](https://img.shields.io/badge/license-proprietary-red)]()
@@ -46,8 +46,8 @@ It's not a chatbot. It's not a wrapper. It's a **self-improving system** with it
 │                            │                                │
 │                   ┌────────┴────────┐                       │
 │                   │  ORCHESTRATOR   │                       │
-│                   │  142 modules     │                       │
-│                   │  104K+ lines     │                       │
+│                   │  258 modules     │                       │
+│                   │  102K lines      │                       │
 │                   └────────┬────────┘                       │
 │                            │                                │
 │         ┌──────────────────┼───────────────────┐            │
@@ -105,9 +105,9 @@ It's not a chatbot. It's not a wrapper. It's a **self-improving system** with it
 | PersonalClaw | 1 | 1 | **100%** |
 | hermes-webui, pythonlings, AynOps, peek, repowise, mloda, conduit, dev-marketing-jobs | 8 | 6 | 75% |
 | Other repos (closed/rejected) | 65 | — | — |
-| **Total** | **93** | **25** | **27%** |
+| **Total** | **93** | **27** | **29%** |
 
-> 25 merged PRs across 14 repositories (Aug 10–26). Conversion rate 27% over 93 submitted — every rejection became a structural gate. See [PR_TRACK_RECORD.md](PR_TRACK_RECORD.md) for the full record and the hard lessons.
+> 27 merged PRs across 14 repositories (Aug 10–Sep 8). Conversion rate 29% over 93 submitted — every rejection became a structural gate. See [PR_TRACK_RECORD.md](PR_TRACK_RECORD.md) for the full record and the hard lessons.
 
 ### Auto-Reopen Flow
 
@@ -124,6 +124,37 @@ Pipeline detects → auto-reopen → ready for review
 2. **`gate_blocked` root cause = wrong routing** — not a strict gate problem
 3. **No-op fix detection** — compare branch vs parent before submitting PR
 4. **Mass comment dedup** — API returns DESC; [-1] is OLDEST, not newest
+
+---
+
+## Self-Direction (Layer 3.5)
+
+The agent no longer only *reacts* to issues it finds — it now **decides what to look for**, within limits set by its owner.
+
+```
+                 ┌─────────────────────────────┐
+                 │      OWNER'S CHARTER        │
+                 │   (human-written mandate)   │
+                 └──────────────┬──────────────┘
+                                │
+                 ┌──────────────▼──────────────┐
+                 │      DIRECTION LOOP         │
+                 │   (separate 5-min service)  │
+                 │  metrics → goal → work order│
+                 └──────────────┬──────────────┘
+                                │  limited work order
+                                ▼
+                 ┌─────────────────────────────┐
+                 │        PR PIPELINE          │
+                 │  reads the order, runs it   │
+                 │  through all existing gates │
+                 └─────────────────────────────┘
+```
+
+- **Source of goals** — owner-approved results only; the agent never invents its own ultimate aims.
+- **Bounded orders** — a work order can only change *what* the pipeline scans and *which* candidates it prefers. It cannot bypass any gate, quota, or safety check.
+- **Deterministic, no LLM** — goal selection and order formation run on metrics alone (MetaPlanner and curiosity are off in v1).
+- **Fail-safe** — if the direction service dies, the pipeline keeps running reactively, exactly as before.
 
 ---
 
@@ -223,10 +254,10 @@ The Ethical Compass is **hardcoded** — not a prompt, not a parameter. Only the
 
 ## Project Status
 
-- [x] Core architecture (142 modules)
+- [x] Core architecture (258 modules)
 - [x] Multi-provider LLM routing
 - [x] Autonomous PR pipeline
-- [x] 25 merged PRs across 14 open-source repos
+- [x] 27 merged PRs across 14 open-source repos
 - [x] Review fix-cycle: atomic commits, reply only after the commit is real
 - [x] Auto-reopen: detect maintainer response after auto-close
 - [x] Conservative mode + sandbox rehearsal (quality over volume)
@@ -234,6 +265,7 @@ The Ethical Compass is **hardcoded** — not a prompt, not a parameter. Only the
 - [x] VPS deployment (6 services, 24/7)
 - [x] Telegram notifications
 - [x] Anti-pattern learning system
+- [x] Self-direction (layer 3.5): owner-approved goals → limited work orders to the pipeline
 - [ ] Crypto donation support (BTC/ETH/USDT)
 - [ ] Benchmark improvement (target: 60%+)
 - [ ] Full autonomy mode (no human approval needed)
