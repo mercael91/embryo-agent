@@ -272,12 +272,6 @@ The Ethical Compass is **hardcoded** — not a prompt, not a parameter. Only the
 
 ---
 
-## Contact
-
-- **Creator:** [mercael91](https://github.com/mercael91)
-- **Telegram:** [@mercael](https://t.me/mercael)
-- **Bot:** [REDACTED-BOT](https://t.me/REDACTED-BOT)
-
 ## Related Projects
 
 - **[Nexus Analytica](https://github.com/mercael91/nexus-analitica)** — AI news intelligence with consensus analysis and scenario forecasting.
