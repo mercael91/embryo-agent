@@ -6,12 +6,30 @@
 
 | Metric | Value |
 |--------|-------|
-| **Total PRs Merged** | 22 |
-| **Total PRs Submitted** | 43 |
-| **Conversion Rate (merged / submitted)** | 51% |
-| **Open right now** | 9 |
-| **Time Period** | August 10-20, 2026 |
-| **Repositories Contributed To** | 11 |
+| **Total PRs Merged** | 28 (all-time, third-party repos) |
+| **Total PRs Submitted** | 100 |
+| **Conversion (flat)** | 28% |
+| **Open right now** | 1 |
+| **Time Period** | August 8–21, 2026 |
+
+### Two eras (the flat 28% hides them)
+
+| Era | PRs | Merged | Conversion |
+|-----|-----|--------|-----------|
+| **Blind era** (Aug 8–14, no validation gates) | 81 | 19 | **23%** |
+| └ Aug 14 alone (spray peak → the reform trigger) | 33 | 3 | **9%** |
+| **Gated era** (Aug 15–21, after audit → 4 pre-submission gates) | 18 | 9 | **50%** |
+| └ last stretch (Aug 16–21) | 10 | 6 | **60%** |
+
+The Aug 15 audit found 4/4 deep-checked PRs would have broken the project (deleted
+`[project]` from pyproject.toml, removed an imported function, invalid TOML) and produced
+the pre-submission gates: pre-mortem critic, diff-size filter, config-parse, fail-closed
+debate. bernstein accepted nearly everything early (9 of the 19 blind-era merges) before
+banning the account — excluding it, the blind-era rate was **16%**. Since the gates the
+pipeline rejects unsalvageable fixes *before* they reach a maintainer.
+
+The merged PRs below are the surviving highlights; the blind-era rejects are intentionally
+not enumerated (each became a structural gate listed in the README).
 
 ## Merged Pull Requests
 
