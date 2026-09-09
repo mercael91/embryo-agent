@@ -7,7 +7,7 @@
 **258 modules · 102K lines · 10 LLM providers · Self-directed**
 
 [![Architecture](https://img.shields.io/badge/architecture-modular-blue)](#architecture)
-[![PRs Merged](https://img.shields.io/badge/PRs_merged-27-brightgreen)](#results)
+[![PRs Merged](https://img.shields.io/badge/PRs_merged-28-brightgreen)](#results)
 [![PRs Submitted](https://img.shields.io/badge/PRs_submitted-93-blue)](#results)
 [![Repos](https://img.shields.io/badge/repos-14-brightgreen)](#results)
 [![License](https://img.shields.io/badge/license-proprietary-red)]()
@@ -104,10 +104,23 @@ It's not a chatbot. It's not a wrapper. It's a **self-improving system** with it
 | Stepik-Python-Grader | 1 | 1 | **100%** |
 | PersonalClaw | 1 | 1 | **100%** |
 | hermes-webui, pythonlings, AynOps, peek, repowise, mloda, conduit, dev-marketing-jobs | 8 | 6 | 75% |
-| Other repos (closed/rejected) | 65 | — | — |
-| **Total** | **93** | **27** | **29%** |
+| Other repos (mostly blind-early rejects) | ~72 | — | — |
 
-> 27 merged PRs across 14 repositories (Aug 10–Sep 8). Conversion rate 29% over 93 submitted — every rejection became a structural gate. See [PR_TRACK_RECORD.md](PR_TRACK_RECORD.md) for the full record and the hard lessons.
+**All-time: 100 PRs submitted to third-party repos · 28 merged.** The flat 28% hides the real story — the agent's first week was a *different system*.
+
+### The Turning Point (August 15, 2026)
+
+The first week was a **blind spray**: fixes shipped with no validation. Aug 14 was the peak — 33 PRs in one day, 3 merged (**9%**) — and bernstein banned the account. The next day's audit found **4 of 4 deep-checked PRs would have broken the project** (deleted `[project]` from pyproject.toml, removed a function still imported by the entry point, invalid TOML). That audit produced the structural gates that turned the system around:
+
+| Era | PRs | Merged | Conversion |
+|-----|-----|--------|-----------|
+| **Blind era** (Aug 8–14, no validation gates) | 81 | 19 | **23%** |
+| └ Aug 14 alone (spray peak → the reform trigger) | 33 | 3 | **9%** |
+| **Aug 15 — audit → 4 pre-submission gates** (pre-mortem critic, diff-size filter, config parse, fail-closed debate) | | | |
+| **Gated era** (Aug 15–21) | 18 | 9 | **50%** |
+| └ last stretch (Aug 16–21, post-stabilization) | 10 | 6 | **60%** |
+
+> bernstein accepted nearly everything in the blind era (9 of its 19 merges) before banning the account — excluding it, the blind-era rate was **16%**. After the gates, every rejection became a structural fix: volume dropped ~4× while conversion more than doubled, and the pipeline stopped shipping fixes it could not defend (candidates now run the full gate chain *before* reaching a maintainer). Full record: [PR_TRACK_RECORD.md](PR_TRACK_RECORD.md).
 
 ### Auto-Reopen Flow
 
@@ -257,7 +270,7 @@ The Ethical Compass is **hardcoded** — not a prompt, not a parameter. Only the
 - [x] Core architecture (258 modules)
 - [x] Multi-provider LLM routing
 - [x] Autonomous PR pipeline
-- [x] 27 merged PRs across 14 open-source repos
+- [x] 28 merged PRs across ~20 open-source repos
 - [x] Review fix-cycle: atomic commits, reply only after the commit is real
 - [x] Auto-reopen: detect maintainer response after auto-close
 - [x] Conservative mode + sandbox rehearsal (quality over volume)
