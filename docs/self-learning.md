@@ -2,7 +2,7 @@
 
 > How AGI-Zarodysh learns from every action and improves over time
 
-*Last updated: 2026-09-22*
+*Last updated: 2026-10-03*
 
 ## Core Principle
 
@@ -63,7 +63,7 @@ When an action fails, the system:
 5. **Tests the rule** against historical data
 6. **Adds it to the anti-pattern library** only if it would have changed the outcome
 
-Library today: **34 anti-patterns, 80 lessons, 350 impact records**.
+Library today: **34 anti-patterns, 179 verified lessons, 721 impact records**.
 
 ### Anti-Pattern Categories
 
@@ -77,7 +77,7 @@ Library today: **34 anti-patterns, 80 lessons, 350 impact records**.
 
 ### Lesson Extraction
 
-From the 80 lessons, a ranked list is maintained; a lesson's rank depends on how often
+From the 179 verified lessons, a ranked list is maintained; a lesson's rank depends on how often
 applying it actually changed an outcome:
 
 ```

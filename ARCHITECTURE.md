@@ -2,7 +2,7 @@
 
 > Detailed technical architecture of AGI-Zarodysh
 
-*Last updated: 2026-09-22*
+*Last updated: 2026-10-03*
 
 ## System Overview
 
@@ -12,7 +12,7 @@ AGI-Zarodysh is a modular autonomous agent system built around three principles:
 2. **Self-improvement** — every action is recorded and every failure becomes a rule
 3. **Ethical grounding** — an immutable, hash-verified moral core
 
-Codebase at the last count: **435 non-test Python modules, ~78K lines, 1,103 test functions**.
+Codebase at the last count: **405 non-test Python modules, ~87K lines, 120 test sets (2,370 checks)**.
 
 ## Module Map
 
@@ -47,7 +47,7 @@ agi-zarodysh/
 │   ├── action_learning.py       # outcome ranking
 │   ├── error_learning.py        # failure → rule candidates
 │   ├── cached_patterns.py       # anti-pattern store (34)
-│   ├── derive_lessons.py        # lesson extraction (80 lessons)
+│   ├── derive_lessons.py        # lesson extraction (179 verified lessons)
 │   └── crystallize.py           # session → durable knowledge
 ├── ethics
 │   └── ethical_compass.py       # 5 immutable principles, hash-verified
@@ -64,7 +64,7 @@ agi-zarodysh/
     ├── provider_registry.py     # 13 providers, fallback chain, health
     └── disk_cleaner.py          # working-dir hygiene
 
-* representative names; the project is ~435 modules and this map shows the load-bearing ones.
+* representative names; the project is ~405 modules and this map shows the load-bearing ones.
 ```
 
 ## Provider Registry
@@ -142,7 +142,7 @@ keeps working reactively.
 
 | Layer | What it proves |
 |-------|----------------|
-| Unit/integration suite | 1,103 test functions in `tests/` (+ per-module `*_tests.py` files) |
+| Unit/integration suite | 120 test sets in the stand (2,370 checks) + per-module `*_tests.py` sets |
 | Rehearsal on PR HEAD | the change runs against the *target project's* own test framework before submission |
 | Contract tests | direction loops, gates, reply guards, budget, notifications |
 | Watchdogs | a periodic self-check of services, auth, submission path and fork state |
@@ -154,7 +154,7 @@ keeps working reactively.
 | Episodic memory (SQLite) | every action: type, provider, context, outcome |
 | Experience store | ranked action patterns with recency weighting |
 | Anti-pattern store | 34 patterns with an impact ranking |
-| Lesson stores | 80 lessons + 350 impact records (did the lesson change behaviour?) |
+| Lesson stores | 179 verified lessons + 721 impact records (did the lesson change behaviour?) |
 
 Learning loop: `Action → Record → Rank → Adjust → Next Action`.
 

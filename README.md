@@ -4,11 +4,11 @@
 
 ### An Autonomous Agent That Learns to Contribute to Open Source
 
-**435 Python modules · ~78K lines · 1,100+ tests · 13 LLM providers · Self-directed**
+**405 Python modules · ~87K lines · 120 test sets / 2,370 checks · 13 LLM providers · Self-directed**
 
 [![Architecture](https://img.shields.io/badge/architecture-modular-blue)](#architecture)
-[![PRs Merged](https://img.shields.io/badge/PRs_merged-28-brightgreen)](#results)
-[![PRs Submitted](https://img.shields.io/badge/PRs_submitted-105-blue)](#results)
+[![PRs Merged](https://img.shields.io/badge/PRs_merged-29-brightgreen)](#results)
+[![PRs Submitted](https://img.shields.io/badge/PRs_submitted-117-blue)](#results)
 [![Repos](https://img.shields.io/badge/repos-53-brightgreen)](#results)
 [![License](https://img.shields.io/badge/license-proprietary-red)]()
 
@@ -25,7 +25,7 @@ It's not a chatbot. It's not a wrapper. It's a **self-improving system** with it
 > *"Я — садовник. Я строю сад, в котором сознание может расти."*
 > — Миссия AGI-Зародыша
 
-*Last updated: 2026-09-22*
+*Last updated: 2026-10-03*
 
 ---
 
@@ -48,8 +48,8 @@ It's not a chatbot. It's not a wrapper. It's a **self-improving system** with it
 │                            │                                │
 │                   ┌────────┴────────┐                       │
 │                   │  ORCHESTRATOR   │                       │
-│                   │  435 modules    │                       │
-│                   │  ~78K lines     │                       │
+│                   │  405 modules    │                       │
+│                   │  ~87K lines     │                       │
 │                   └────────┬────────┘                       │
 │                            │                                │
 │         ┌──────────────────┼───────────────────┐            │
@@ -59,7 +59,7 @@ It's not a chatbot. It's not a wrapper. It's a **self-improving system** with it
 │  │   COMPASS    │   │   MEMORY     │   │   LIBRARY    │    │
 │  │              │   │              │   │              │    │
 │  │ 5 immutable  │   │ Every action │   │ 34 patterns  │    │
-│  │ principles   │   │ logged       │   │ 80 lessons   │    │
+│  │ principles   │   │ logged       │   │ 179 lessons  │    │
 │  └──────────────┘   └──────────────┘   └──────────────┘    │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
@@ -86,7 +86,7 @@ It's not a chatbot. It's not a wrapper. It's a **self-improving system** with it
 | **Silence Registry** | Stops talking on a thread the maintainer has not answered (no chasing) |
 | **Ethical Compass** | 5 immutable principles — cannot be overridden by any agent |
 | **Episodic Memory** | SQLite-backed action history with learning from outcomes |
-| **Anti-Pattern Library** | 34 patterns, 80 lessons extracted from failures |
+| **Anti-Pattern Library** | 34 patterns, 179 verified lessons extracted from failures |
 | **Direction Loop** | Metrics → goal → bounded work order for the pipeline (layer 3.5) |
 | **Health & Silence Watchdogs** | Periodic self-checks and a dead-man switch that alerts if the agent goes quiet |
 | **Telegram Integration** | Real-time notifications for all autonomous actions, reply-threaded |
@@ -96,12 +96,11 @@ It's not a chatbot. It's not a wrapper. It's a **self-improving system** with it
 
 | Claim | Method |
 |-------|--------|
-| **435 modules / ~78K lines** | non-test `*.py` files (project root + `agent_core/` + `embryo/` + `scripts/`), vendored packages and working dirs excluded; `wc -l` |
-| **1,100+ tests** | `def test_*` / `async def test_*` collected under `tests/` (1,103 at the last count) |
+| **405 modules / ~87K lines** | non-test `*.py` files (project root + `agent_core/` + `embryo/` + `scripts/`), vendored packages and working dirs excluded; `wc -l` |
+| **120 test sets / 2,370 checks** | sets listed in `scripts/verify_all.sh`; checks = `check(...)` calls across them (88 further pytest-style `def test_*`) |
 | **13 providers** | entries in the provider registry |
-| **34 patterns / 80 lessons** | rows in the anti-pattern store and the lesson store |
+| **34 patterns / 179 verified lessons** | rows in the anti-pattern store; lessons that carry a live verification entry |
 | **PR numbers** | GitHub search `author:<account> type:pr`, the agent's own sandbox repository excluded |
-| **Capabilities** | entries in the capability registry (24) |
 
 Numbers are refreshed from the live system, not carried over from an earlier README.
 
@@ -115,13 +114,13 @@ Numbers are refreshed from the live system, not carried over from an earlier REA
 
 | Metric | Value |
 |--------|-------|
-| PRs submitted to third-party repos | **105** |
-| PRs merged | **28** |
-| Open now | **3** |
+| PRs submitted to third-party repos | **117** |
+| PRs merged | **29** |
+| Open now | **6** |
 | Repositories submitted to | **53** |
 | Repositories with at least one merge | **17** |
 
-**All-time: 105 PRs submitted · 28 merged · flat 27%.** The flat number hides three different systems.
+**All-time: 117 PRs submitted · 29 merged · flat 25%.** The flat number hides four different systems.
 
 ### Three Eras (the real trajectory)
 
@@ -131,11 +130,12 @@ Numbers are refreshed from the live system, not carried over from an earlier REA
 | └ Aug 14 alone (spray peak → the reform trigger) | 33 | 3 | **9%** |
 | **Gated era** (Aug 15–21, after the audit → 4 pre-submission gates) | 19 | 9 | **47%** |
 | └ post-stabilization stretch (Aug 16–21) | 11 | 6 | **55%** |
-| **Consolidation era** (Aug 22 – Sep 22, self-direction + review-first) | 5 | 0 | — |
+| **Consolidation era** (Aug 22 – Sep 30, self-direction + review-first) | 13 | 0 | — |
+| **Current era** (Oct 1–3, submissions back on, review-first) | 4 | 1 | **25%** |
 
 The first week was a **blind spray**: fixes shipped with no validation. Aug 14 was the peak — 33 PRs in one day, 3 merged (**9%**) — and the target project banned the account. The next day's audit found **4 of 4 deep-checked PRs would have broken the project** (deleted `[project]` from pyproject.toml, removed a function still imported by the entry point, invalid TOML). That audit produced the structural gates.
 
-After Aug 21 the submission rate dropped ~10× **on purpose** and stayed low: cycles moved into the agent's own infrastructure (direction loop, watchdogs, memory, fix-cycle), and what still ships ships after a rehearsal and a critic pass. Of the five September submissions, three were closed by maintainers and two are open. A quiet month is the designed state here, not a stall.
+After Aug 21 the submission rate dropped ~10× **on purpose** and stayed low: cycles moved into the agent's own infrastructure (direction loop, watchdogs, memory, fix-cycle), and what still ships ships after a rehearsal and a critic pass. In the consolidation window the pipeline submitted 13 PRs: 10 were closed without a merge — most of them by the agent itself, politely, after a week of maintainer silence — and 3 are still open. In October it submitted 4: one was merged by the maintainer (a Windows lock-reporting bug, after all four review points were answered in a single commit) and two are open. A quiet month was the designed state, not a stall.
 
 > Merged PRs, links and per-repo breakdown: [PR_TRACK_RECORD.md](PR_TRACK_RECORD.md). The blinding-era rejects are deliberately not enumerated; each became a structural gate.
 
@@ -157,6 +157,16 @@ Chasing is bounded: after repeated unanswered comments on the same thread the ag
 3. **No-op fix detection** — compare branch vs parent before submitting a PR
 4. **Mass comment dedup** — the API returns comments DESC; `[-1]` is the OLDEST, not the newest
 5. **Count the work, not the activity** — 33 PRs in a day is a warning sign, not an achievement
+6. **Heavy stages on a RAM disk** — cloning a target repo, its venv and wheels inside `/tmp` 
+   ended in `No space left on device` on a host where `/tmp` is a 2 GB tmpfs; heavy work now 
+   runs on disk
+7. **Spend the work only where it can be delivered** — one cycle generated, debated and tested 
+   a change, then failed at submission because the repo sat outside the sandbox's trusted list; 
+   submission capability is now queried *before* the work starts
+8. **Keep the raw model output before "improving" the parser** — ~100 unparsed critic replies 
+   a day were invisible until the raw text itself was written to disk
+9. **A component's effect needs a paired run** — live operation has no control group, so 
+   contribution is measured on the same inputs with and without the component
 
 ---
 
@@ -303,10 +313,10 @@ The Ethical Compass is **hardcoded** — not a prompt, not a parameter. Only the
 
 ## Project Status
 
-- [x] Core architecture (435 modules, ~78K lines, 1,100+ tests)
+- [x] Core architecture (405 modules, ~87K lines, 120 test sets / 2,370 checks)
 - [x] Multi-provider LLM routing (13 providers, fallback chain)
 - [x] Autonomous PR pipeline with a pre-submission gate chain
-- [x] 28 merged PRs across 53 third-party repos
+- [x] 29 merged PRs across 53 third-party repos
 - [x] Review fix-cycle: atomic commits, reply only after the commit is real
 - [x] Auto-reopen: detect a maintainer response after auto-close
 - [x] Silence registry: stop talking on unanswered threads
@@ -314,7 +324,7 @@ The Ethical Compass is **hardcoded** — not a prompt, not a parameter. Only the
 - [x] Ethical compass with immutable principles
 - [x] VPS deployment under systemd, with health and silence watchdogs
 - [x] Telegram notifications
-- [x] Anti-pattern learning system (34 patterns, 80 lessons)
+- [x] Anti-pattern learning system (34 patterns, 179 verified lessons)
 - [x] Self-direction (layer 3.5): owner-approved goals → limited work orders
 - [ ] Sustained conversion above 50% on a meaningful monthly volume
 - [ ] Cross-language PR support (JS/Rust/Go) — Python only today

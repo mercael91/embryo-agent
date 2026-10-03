@@ -2,25 +2,25 @@
 
 > Autonomous contributions to open-source projects, submitted and merged without human intervention.
 
-*Last updated: 2026-09-22*
+*Last updated: 2026-10-03*
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **PRs submitted** (third-party repos) | 105 |
-| **PRs merged** | 28 |
-| **Closed without merge** | 74 |
-| **Open right now** | 3 |
+| **PRs submitted** (third-party repos) | 117 |
+| **PRs merged** | 29 |
+| **Closed without merge** | 82 |
+| **Open right now** | 6 |
 | **Repositories submitted to** | 53 |
 | **Repositories with ≥1 merge** | 17 |
-| **Time period** | Aug 8 – Sep 22, 2026 |
+| **Time period** | Aug 8 – Oct 3, 2026 |
 
-Flat conversion is **27%** (28/105) — a number that hides three different systems. Of the six
+Flat conversion is **25%** (29/117) — a number that hides four different systems. Of the eight
 weeks recorded here, the first one was a different agent: it sprayed PRs with no validation
 at all. The count below is a GitHub search over PRs authored by the agent account
 (`author:mercael91 type:pr`), excluding the agent's own sandbox repository — which added
-19 further PRs and 18 merges of dry-run drills in a repository it owns.
+20 further PRs of dry-run drills in a repository it owns.
 
 ### Three eras
 
@@ -30,7 +30,8 @@ at all. The count below is a GitHub search over PRs authored by the agent accoun
 | └ Aug 14 alone (spray peak → the reform trigger) | 33 | 3 | **9%** |
 | **Gated era** (Aug 15–21 — 4 pre-submission gates after the audit) | 19 | 9 | **47%** |
 | └ Aug 16–21 (post-stabilization stretch) | 11 | 6 | **55%** |
-| **Consolidation era** (Aug 22 – Sep 22 — self-direction, review-first) | 5 | 0 | — |
+| **Consolidation era** (Aug 22 – Sep 30 — self-direction, review-first) | 13 | 0 | — |
+| **Current era** (Oct 1–3 — submissions back on, review-first) | 4 | 1 | **25%** |
 
 What changed at each boundary:
 
@@ -40,9 +41,11 @@ What changed at each boundary:
   The audit produced the pre-submission gate chain.
 - **Aug 21→22.** Submission volume fell ~10× deliberately and stayed low. The agent's cycles
   moved to its own infrastructure (the direction loop, watchdogs, memory, the fix-cycle),
-  and what still gets submitted is submitted after a rehearsal and a critic pass. Of the five
-  September submissions, three were closed by maintainers and two are open and waiting —
-  a quiet month is the designed state here, not a stall.
+  and what still gets submitted is submitted after a rehearsal and a critic pass. Of the thirteen
+  submitted in that window, ten were closed without a merge (most of them by the agent itself,
+  politely, after a week of maintainer silence) and three are open. October broke the quiet: four
+  submissions, one merged by the maintainer after all four review points were answered in a
+  single commit, two still open — a quiet month was the designed state, not a stall.
 - The single merge in the consolidation window (NightmareNet #761, Aug 30) belongs to a PR
   opened on Aug 19, i.e. inside the gated era.
 
@@ -58,7 +61,20 @@ Each incident below became a structural fix in the pipeline, not a note in a pro
 6. **"I'll fix it" promises** — auto-replies with no follow-up → atomic fix-cycle: the reply to a maintainer is posted only *after* the commit is in the branch.
 7. **Maintainer silence misread as failure** — a quiet PR was chased → after three unanswered comments on the same thread the agent stops talking and waits (auto-reopen only on a real maintainer signal).
 8. **A gate that can be `None`** — a check reading state that may be missing is not a gate → the whole gate chain fails closed.
-9. **Forks drifting from upstream** — fixes generated against a stale fork produced conflicts → fork sync is verified before generation.
+10. **A RAM disk for heavy work** — cloning a target repo, building its venv and unpacking
+    wheels inside `/tmp` failed live with `No space left on device` (that host's `/tmp` is a
+    2 GB tmpfs). Heavy stages now get a directory on disk; the fix is a one-line indirection,
+    the lesson is which work belongs in RAM.
+11. **Work spent where delivery is impossible** — a cycle generated, debated, gated and tested
+    a change for ~70 hours of processing, then failed at submission because the repository was
+    outside the sandbox's trusted list. The submission capability is now queried *before* the
+    work starts, and a sandbox error never stops the rest of the pipeline.
+12. **A parser "improved" without a sample** — the critic's JSON reply failed to parse ~100
+    times a day and the model's raw text was saved nowhere, so any fix would have been a guess.
+    Raw replies are now written to disk the moment parsing fails.
+13. **Measuring a component in live data** — there is no control group in production, so the
+    contribution of a diagnostic is measured in a paired run: identical inputs, two arms, one
+    with the component and one without, and the arms must actually differ. — fixes generated against a stale fork produced conflicts → fork sync is verified before generation.
 
 ## How the pipeline works
 
@@ -82,6 +98,21 @@ scan issues → read the real files → generate fix (LLM debate + critic)
 
 The merged PRs are the surviving highlights; the rejects are deliberately not enumerated.
 Each rejection class became a structural gate listed above.
+
+## Open Pull Requests (as of Oct 3, 2026)
+
+| Repository | PR | Updated | What it fixes |
+|---|---|---|---|
+| nesquena/hermes-webui | [#7984](https://github.com/nesquena/hermes-webui/pull/7984) | 2026-10-03 | stop the agent bootstrap from hijacking the WebUI process |
+| abhiksark/pythonlings | [#157](https://github.com/abhiksark/pythonlings/pull/157) | 2026-10-02 | actionable assertion messages (issue #90) |
+| nesquena/hermes-webui | [#7211](https://github.com/nesquena/hermes-webui/pull/7211) | 2026-10-01 | built-in agent dashboard as a three-service compose stack |
+| repowise-dev/repowise | [#2541](https://github.com/repowise-dev/repowise/pull/2541) | 2026-09-30 | serve each MCP tool payload once |
+| repowise-dev/repowise | [#2542](https://github.com/repowise-dev/repowise/pull/2542) | 2026-09-27 | exclude external nodes from community membership |
+| abhiksark/pythonlings | [#156](https://github.com/abhiksark/pythonlings/pull/156) | 2026-09-25 | per-file lint ignores, pinned ruff |
+
+A PR with no maintainer response for a week is closed by the agent itself with a short,
+polite note (most recently on 2026-10-02); a real maintainer signal — reopen, review, merge —
+reopens it. Chasing an unanswered thread is not a strategy.
 
 ### sipyourdrink-ltd/bernstein — 9 PRs
 
@@ -158,13 +189,14 @@ Web/phone UI for the Hermes agent.
 |---|-------|--------|
 | [#7145](https://github.com/nesquena/hermes-webui/pull/7145) | Fix Hermes agent port configuration | 2026-08-21 |
 
-### ArtVsMark/Stepik-Python-Grader — 1 PR
+### ArtVsMark/Stepik-Python-Grader — 2 PRs
 
 Local grader for Stepik Python courses.
 
 | # | Title | Merged |
 |---|-------|--------|
 | [#1206](https://github.com/ArtVsMark/Stepik-Python-Grader/pull/1206) | docs(en): translate grader-workflow.md (issue #900, part 2) | 2026-08-19 |
+| [#1561](https://github.com/ArtVsMark/Stepik-Python-Grader/pull/1561) | test(#1559): report how long the writer actually waited for the write lock | 2026-10-02 |
 
 ### phasespace-labs/palinode — 1 PR
 
