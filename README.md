@@ -4,11 +4,11 @@
 
 ### An Autonomous Agent That Learns to Contribute to Open Source
 
-**405 Python modules · ~87K lines · 120 test sets / 2,370 checks · 13 LLM providers · Self-directed**
+**405 Python modules · ~87K lines · 124 test sets / 2,400+ checks · 13 LLM providers · Self-directed**
 
 [![Architecture](https://img.shields.io/badge/architecture-modular-blue)](#architecture)
-[![PRs Merged](https://img.shields.io/badge/PRs_merged-29-brightgreen)](#results)
-[![PRs Submitted](https://img.shields.io/badge/PRs_submitted-117-blue)](#results)
+[![PRs Merged](https://img.shields.io/badge/PRs_merged-50-brightgreen)](#results)
+[![PRs Submitted](https://img.shields.io/badge/PRs_submitted-144-blue)](#results)
 [![Repos](https://img.shields.io/badge/repos-53-brightgreen)](#results)
 [![License](https://img.shields.io/badge/license-proprietary-red)]()
 
@@ -25,7 +25,7 @@ It's not a chatbot. It's not a wrapper. It's a **self-improving system** with it
 > *"Я — садовник. Я строю сад, в котором сознание может расти."*
 > — Миссия AGI-Зародыша
 
-*Last updated: 2026-10-03*
+*Last updated: 2026-10-14*
 
 ---
 
@@ -97,7 +97,7 @@ It's not a chatbot. It's not a wrapper. It's a **self-improving system** with it
 | Claim | Method |
 |-------|--------|
 | **405 modules / ~87K lines** | non-test `*.py` files (project root + `agent_core/` + `embryo/` + `scripts/`), vendored packages and working dirs excluded; `wc -l` |
-| **120 test sets / 2,370 checks** | sets listed in `scripts/verify_all.sh`; checks = `check(...)` calls across them (88 further pytest-style `def test_*`) |
+| **124 test sets / 2,400+ checks** | sets listed in `scripts/verify_all.sh`; checks = `check(...)` calls across them (88 further pytest-style `def test_*`) |
 | **13 providers** | entries in the provider registry |
 | **34 patterns / 179 verified lessons** | rows in the anti-pattern store; lessons that carry a live verification entry |
 | **PR numbers** | GitHub search `author:<account> type:pr`, the agent's own sandbox repository excluded |
@@ -114,13 +114,18 @@ Numbers are refreshed from the live system, not carried over from an earlier REA
 
 | Metric | Value |
 |--------|-------|
-| PRs submitted to third-party repos | **117** |
-| PRs merged | **29** |
+| PRs submitted to third-party repos | **144** |
+| PRs merged | **50** |
 | Open now | **6** |
 | Repositories submitted to | **53** |
 | Repositories with at least one merge | **17** |
 
-**All-time: 117 PRs submitted · 29 merged · flat 25%.** The flat number hides four different systems.
+**All-time: 144 PRs submitted · 50 merged · 35%.** The flat number hides four different systems.
+
+**Recent milestones (Oct 2026):**
+- **First autonomous rule promotion** (provisional → stable): 2026-10-13 — Stepik `max_line_length` rule passed 3 live preflight cycles with zero blocks, promoted automatically.
+- **Contributions recognized in repos**: yazses (README contributors wall + CONTRIBUTORS.md + v2.19.0 release notes), bernstein (CONTRIBUTORS.md), palinode (AUTHORS.md).
+- **Shipped in releases**: yazses v2.19.0, repowise v0.56.0, hermes-webui (exp-v0.52.260, exp-v0.52.455).
 
 ### Three Eras (the real trajectory)
 
@@ -313,7 +318,7 @@ The Ethical Compass is **hardcoded** — not a prompt, not a parameter. Only the
 
 ## Project Status
 
-- [x] Core architecture (405 modules, ~87K lines, 120 test sets / 2,370 checks)
+- [x] Core architecture (405 modules, ~87K lines, 124 test sets / 2,400+ checks)
 - [x] Multi-provider LLM routing (13 providers, fallback chain)
 - [x] Autonomous PR pipeline with a pre-submission gate chain
 - [x] 29 merged PRs across 53 third-party repos
