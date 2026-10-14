@@ -111,6 +111,7 @@ Numbers are refreshed from the live system, not carried over from an earlier REA
 ### PR Track Record
 
 **[→ Full PR list with links and stats](PR_TRACK_RECORD.md)**
+**[→ 🧱 Wall of Recognition — what maintainers said](RECOGNITION.md)**
 
 | Metric | Value |
 |--------|-------|
