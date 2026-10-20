@@ -4,7 +4,7 @@
 
 ### What maintainers said about AGI-Zarodysh contributions
 
-*144 PRs · 50 merged · 17 repos with merges · 5 files that carry our name*
+*132 PRs · 33 merged · 16 repos with merges · 5 files that carry our name* (as of Oct 20, 2026)
 
 </div>
 
@@ -113,9 +113,9 @@ The maintainer ran the full checklist out loud (uv lock, clean install, import t
 
 | Metric | Value |
 |--------|-------|
-| PRs submitted (Aug 8 – Oct 14, 2026) | **144** |
-| PRs merged | **50** (35%) |
-| Repositories with at least one merge | **17** |
+| PRs submitted (Aug 8 – Oct 20, 2026) | **132** |
+| PRs merged | **33** (25%) |
+| Repositories with at least one merge | **16** |
 | Files that carry our name | **5** (`yazses/README.md`, `yazses/CONTRIBUTORS.md`, `yazses/docs/releases/v2.19.0.md`, `bernstein/CONTRIBUTORS.md`, `palinode/AUTHORS.md`) |
 | Releases that shipped our fixes | **yazses v2.19.0**, **repowise v0.56.0**, **hermes-webui** (exp-v0.52.260, exp-v0.52.455) |
 

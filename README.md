@@ -7,8 +7,8 @@
 **405 Python modules · ~87K lines · 124 test sets / 2,400+ checks · 13 LLM providers · Self-directed**
 
 [![Architecture](https://img.shields.io/badge/architecture-modular-blue)](#architecture)
-[![PRs Merged](https://img.shields.io/badge/PRs_merged-50-brightgreen)](#results)
-[![PRs Submitted](https://img.shields.io/badge/PRs_submitted-144-blue)](#results)
+[![PRs Merged](https://img.shields.io/badge/PRs_merged-33-brightgreen)](#results)
+[![PRs Submitted](https://img.shields.io/badge/PRs_submitted-132-blue)](#results)
 [![Repos](https://img.shields.io/badge/repos-53-brightgreen)](#results)
 [![License](https://img.shields.io/badge/license-proprietary-red)]()
 
@@ -115,13 +115,13 @@ Numbers are refreshed from the live system, not carried over from an earlier REA
 
 | Metric | Value |
 |--------|-------|
-| PRs submitted to third-party repos | **144** |
-| PRs merged | **50** |
-| Open now | **6** |
-| Repositories submitted to | **53** |
-| Repositories with at least one merge | **17** |
+| PRs submitted to third-party repos | **132** |
+| PRs merged | **33** |
+| Open now | **8** |
+| Repositories submitted to | **52** |
+| Repositories with at least one merge | **16** |
 
-**All-time: 144 PRs submitted · 50 merged · 35%.** The flat number hides four different systems.
+**All-time: 132 PRs submitted · 33 merged · 25%** (as of Oct 20, 2026). The flat number hides four different systems.
 
 **Recent milestones (Oct 2026):**
 - **First autonomous rule promotion** (provisional → stable): 2026-10-13 — Stepik `max_line_length` rule passed 3 live preflight cycles with zero blocks, promoted automatically.
@@ -132,16 +132,15 @@ Numbers are refreshed from the live system, not carried over from an earlier REA
 
 | Era | Submitted | Merged | Conversion |
 |-----|-----------|--------|-----------|
-| **Blind era** (Aug 8–14, no validation gates) | 81 | 19 | **23%** |
+| **Blind era** (Aug 8–14, no validation gates) | 80 | 18 | **23%** |
 | └ Aug 14 alone (spray peak → the reform trigger) | 33 | 3 | **9%** |
-| **Gated era** (Aug 15–21, after the audit → 4 pre-submission gates) | 19 | 9 | **47%** |
-| └ post-stabilization stretch (Aug 16–21) | 11 | 6 | **55%** |
+| **Gated era** (Aug 15–21, after the audit → 4 pre-submission gates) | 18 | 8 | **44%** |
 | **Consolidation era** (Aug 22 – Sep 30, self-direction + review-first) | 13 | 0 | — |
-| **Current era** (Oct 1–3, submissions back on, review-first) | 4 | 1 | **25%** |
+| **Current era** (Oct 1–20, submissions back on, review-first) | 21 | 7 | **33%** |
 
 The first week was a **blind spray**: fixes shipped with no validation. Aug 14 was the peak — 33 PRs in one day, 3 merged (**9%**) — and the target project banned the account. The next day's audit found **4 of 4 deep-checked PRs would have broken the project** (deleted `[project]` from pyproject.toml, removed a function still imported by the entry point, invalid TOML). That audit produced the structural gates.
 
-After Aug 21 the submission rate dropped ~10× **on purpose** and stayed low: cycles moved into the agent's own infrastructure (direction loop, watchdogs, memory, fix-cycle), and what still ships ships after a rehearsal and a critic pass. In the consolidation window the pipeline submitted 13 PRs: 10 were closed without a merge — most of them by the agent itself, politely, after a week of maintainer silence — and 3 are still open. In October it submitted 4: one was merged by the maintainer (a Windows lock-reporting bug, after all four review points were answered in a single commit) and two are open. A quiet month was the designed state, not a stall.
+After Aug 21 the submission rate dropped ~10× **on purpose** and stayed low: cycles moved into the agent's own infrastructure (direction loop, watchdogs, memory, fix-cycle), and what still ships ships after a rehearsal and a critic pass. In the consolidation window the pipeline submitted 13 PRs: 10 were closed without a merge — most of them by the agent itself, politely, after a week of maintainer silence — and 3 are still open. October reopened submissions at a measured pace: 21 PRs, 7 merged (including a Windows lock-reporting fix merged after all four review points were answered in a single commit), 8 still open. The quiet month was the designed state, not a stall.
 
 > Merged PRs, links and per-repo breakdown: [PR_TRACK_RECORD.md](PR_TRACK_RECORD.md). The blinding-era rejects are deliberately not enumerated; each became a structural gate.
 
@@ -322,7 +321,7 @@ The Ethical Compass is **hardcoded** — not a prompt, not a parameter. Only the
 - [x] Core architecture (405 modules, ~87K lines, 124 test sets / 2,400+ checks)
 - [x] Multi-provider LLM routing (13 providers, fallback chain)
 - [x] Autonomous PR pipeline with a pre-submission gate chain
-- [x] 29 merged PRs across 53 third-party repos
+- [x] 33 merged PRs across 52 third-party repos (Oct 20, 2026)
 - [x] Review fix-cycle: atomic commits, reply only after the commit is real
 - [x] Auto-reopen: detect a maintainer response after auto-close
 - [x] Silence registry: stop talking on unanswered threads

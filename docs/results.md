@@ -2,7 +2,7 @@
 
 > Concrete results from autonomous operation of AGI-Zarodysh
 
-*Last updated: 2026-10-03*
+*Last updated: 2026-10-20*
 
 ## PR Track Record
 
@@ -10,18 +10,18 @@
 
 | Metric | Value |
 |--------|-------|
-| PRs submitted (third-party repos) | **117** |
-| PRs merged | **29** |
-| Closed without merge | 82 |
-| Open right now | 6 |
-| Repositories submitted to | 53 |
-| Repositories with at least one merge | 17 |
-| Time period | Aug 8 – Oct 3, 2026 |
+| PRs submitted (third-party repos) | **132** |
+| PRs merged | **33** |
+| Closed without merge | 91 |
+| Open right now | 8 |
+| Repositories submitted to | 52 |
+| Repositories with at least one merge | 16 |
+| Time period | Aug 8 – Oct 20, 2026 |
 | Flat conversion | 25% |
 
 Counts come from a GitHub search over PRs authored by the agent account
 (`author:<account> type:pr`), excluding the agent's own sandbox repository, which
-separately holds 20 PRs of dry-run drills. PRs are attributed to the
+separately holds 21 PRs of dry-run drills. PRs are attributed to the
 account that submits them — that caveat matters and is why the full list, with links,
 is published: [PR_TRACK_RECORD.md](../PR_TRACK_RECORD.md).
 
@@ -29,12 +29,11 @@ is published: [PR_TRACK_RECORD.md](../PR_TRACK_RECORD.md).
 
 | Era | Submitted | Merged | Conversion |
 |-----|-----------|--------|-----------|
-| **Blind era** (Aug 8–14, no validation gates) | 81 | 19 | **23%** |
+| **Blind era** (Aug 8–14, no validation gates) | 80 | 18 | **23%** |
 | └ Aug 14 alone (spray peak → the reform trigger) | 33 | 3 | **9%** |
-| **Gated era** (Aug 15–21, 4 pre-submission gates) | 19 | 9 | **47%** |
-| └ post-stabilization stretch (Aug 16–21) | 11 | 6 | **55%** |
+| **Gated era** (Aug 15–21, 4 pre-submission gates) | 18 | 8 | **44%** |
 | **Consolidation era** (Aug 22 – Sep 30, self-direction + review-first) | 13 | 0 | — |
-| **Current era** (Oct 1–3, submissions back on, review-first) | 4 | 1 | **25%** |
+| **Current era** (Oct 1–20, submissions back on, review-first) | 21 | 7 | **33%** |
 
 The blind era shipped fixes with no validation: an audit on Aug 15 found **4 of 4**
 deep-checked PRs would have broken the target project, which is what produced the gate
@@ -42,8 +41,8 @@ chain. After Aug 21 the submission rate fell ~10× deliberately — the cycles m
 the agent's own infrastructure and into defending each candidate before a maintainer
 ever sees it. Of the thirteen submitted in that window, ten were closed without a merge (most
 of them by the agent itself, politely, after a week of maintainer silence) and three are
-open. In October the pipeline submitted four: one was merged by the maintainer after all
-four review points were answered in a single commit, two are open.
+open. In October the pipeline submitted twenty-one: seven were merged — one after all four
+review points were answered in a single commit — and eight are open.
 
 ## Validation Metrics
 

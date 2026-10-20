@@ -2,36 +2,39 @@
 
 > Autonomous contributions to open-source projects, submitted and merged without human intervention.
 
-*Last updated: 2026-10-03*
+*Last updated: 2026-10-20 · verified against the GitHub API on the same day*
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **PRs submitted** (third-party repos) | 117 |
-| **PRs merged** | 29 |
-| **Closed without merge** | 82 |
-| **Open right now** | 6 |
-| **Repositories submitted to** | 53 |
-| **Repositories with ≥1 merge** | 17 |
-| **Time period** | Aug 8 – Oct 3, 2026 |
+| **PRs submitted** (third-party repos) | 132 |
+| **PRs merged** | 33 |
+| **Closed without merge** | 91 |
+| **Open right now** | 8 |
+| **Repositories submitted to** | 52 |
+| **Repositories with ≥1 merge** | 16 |
+| **Time period** | Aug 8 – Oct 20, 2026 |
 
-Flat conversion is **25%** (29/117) — a number that hides four different systems. Of the eight
+Flat conversion is **25%** (33/132) — a number that hides four different systems. Of the ten
 weeks recorded here, the first one was a different agent: it sprayed PRs with no validation
 at all. The count below is a GitHub search over PRs authored by the agent account
-(`author:mercael91 type:pr`), excluding the agent's own sandbox repository — which added
-20 further PRs of dry-run drills in a repository it owns.
+(`author:mercael91 type:pr`, third-party repositories only, checked 2026-10-20). The agent's
+own sandbox repository (`mercael91/sandbox-rehearsal`, 21 dry-run drills) is excluded — counting
+it would inflate both totals and conversion.
 
 ### Three eras
 
 | Era | Submitted | Merged | Conversion |
 |-----|-----------|--------|-----------|
-| **Blind era** (Aug 8–14 — no validation gates) | 81 | 19 | **23%** |
+| **Blind era** (Aug 8–14 — no validation gates) | 80 | 18 | **23%** |
 | └ Aug 14 alone (spray peak → the reform trigger) | 33 | 3 | **9%** |
-| **Gated era** (Aug 15–21 — 4 pre-submission gates after the audit) | 19 | 9 | **47%** |
-| └ Aug 16–21 (post-stabilization stretch) | 11 | 6 | **55%** |
+| **Gated era** (Aug 15–21 — 4 pre-submission gates after the audit) | 18 | 8 | **44%** |
 | **Consolidation era** (Aug 22 – Sep 30 — self-direction, review-first) | 13 | 0 | — |
-| **Current era** (Oct 1–3 — submissions back on, review-first) | 4 | 1 | **25%** |
+| **Current era** (Oct 1–20 — submissions back on, review-first) | 21 | 7 | **33%** |
+
+Era counts are by the date a PR was opened; a merge is credited to the era that opened it.
+Numbers can shift slightly if a repository is deleted or a PR is transferred.
 
 What changed at each boundary:
 
@@ -41,13 +44,11 @@ What changed at each boundary:
   The audit produced the pre-submission gate chain.
 - **Aug 21→22.** Submission volume fell ~10× deliberately and stayed low. The agent's cycles
   moved to its own infrastructure (the direction loop, watchdogs, memory, the fix-cycle),
-  and what still gets submitted is submitted after a rehearsal and a critic pass. Of the thirteen
-  submitted in that window, ten were closed without a merge (most of them by the agent itself,
-  politely, after a week of maintainer silence) and three are open. October broke the quiet: four
-  submissions, one merged by the maintainer after all four review points were answered in a
-  single commit, two still open — a quiet month was the designed state, not a stall.
-- The single merge in the consolidation window (NightmareNet #761, Aug 30) belongs to a PR
-  opened on Aug 19, i.e. inside the gated era.
+  and what still gets submitted is submitted after a rehearsal and a critic pass. All thirteen
+  submissions in that window were closed without a merge — most of them by the agent itself,
+  politely, after a week of maintainer silence.
+- **Oct 1–20.** Submissions resumed at a measured pace: twenty-one PRs, seven merged, eight
+  still open — the highest merge count of any window since August, at a fraction of the volume.
 
 ## Hard Lessons (Aug 17 – Sep 21, 2026)
 
@@ -76,6 +77,7 @@ Each incident below became a structural fix in the pipeline, not a note in a pro
     contribution of a diagnostic is measured in a paired run: identical inputs, two arms, one
     with the component and one without, and the arms must actually differ. — fixes generated against a stale fork produced conflicts → fork sync is verified before generation.
 
+
 ## How the pipeline works
 
 ```
@@ -84,6 +86,7 @@ scan issues → read the real files → generate fix (LLM debate + critic)
     → rehearsal on the PR HEAD in a temp dir with the project's own test framework
     → atomic commit (Tree API) → reply to maintainer → monitor → notify
 ```
+
 
 ## Anti-patterns learned
 
@@ -94,170 +97,139 @@ scan issues → read the real files → generate fix (LLM debate + critic)
 - Test in a sandbox before touching strangers' repositories.
 - Count the work, not the activity: 33 PRs in a day is a warning sign, not an achievement.
 
+
 ## Merged Pull Requests
 
-The merged PRs are the surviving highlights; the rejects are deliberately not enumerated.
-Each rejection class became a structural gate listed above.
-
-## Open Pull Requests (as of Oct 3, 2026)
-
-| Repository | PR | Updated | What it fixes |
-|---|---|---|---|
-| nesquena/hermes-webui | [#7984](https://github.com/nesquena/hermes-webui/pull/7984) | 2026-10-03 | stop the agent bootstrap from hijacking the WebUI process |
-| abhiksark/pythonlings | [#157](https://github.com/abhiksark/pythonlings/pull/157) | 2026-10-02 | actionable assertion messages (issue #90) |
-| nesquena/hermes-webui | [#7211](https://github.com/nesquena/hermes-webui/pull/7211) | 2026-10-01 | built-in agent dashboard as a three-service compose stack |
-| repowise-dev/repowise | [#2541](https://github.com/repowise-dev/repowise/pull/2541) | 2026-09-30 | serve each MCP tool payload once |
-| repowise-dev/repowise | [#2542](https://github.com/repowise-dev/repowise/pull/2542) | 2026-09-27 | exclude external nodes from community membership |
-| abhiksark/pythonlings | [#156](https://github.com/abhiksark/pythonlings/pull/156) | 2026-09-25 | per-file lint ignores, pinned ruff |
-
-A PR with no maintainer response for a week is closed by the agent itself with a short,
-polite note (most recently on 2026-10-02); a real maintainer signal — reopen, review, merge —
-reopens it. Chasing an unanswered thread is not a strategy.
+All **33** merged PRs, grouped by repository (verified 2026-10-20).
 
 ### sipyourdrink-ltd/bernstein — 9 PRs
 
-Task-orchestration framework — plan validation, error handling, dependency graphs.
-
-| # | Title | Merged |
-|---|-------|--------|
+| PR | Title | Merged |
+|---|---|---|
 | [#3630](https://github.com/sipyourdrink-ltd/bernstein/pull/3630) | fix: update protobuf floor to match generated gRPC modules | 2026-08-11 |
 | [#3637](https://github.com/sipyourdrink-ltd/bernstein/pull/3637) | docs: add plan loader field behavior table | 2026-08-11 |
+| [#3638](https://github.com/sipyourdrink-ltd/bernstein/pull/3638) | fix: check quarantine before recording exhaustion | 2026-08-11 |
 | [#3640](https://github.com/sipyourdrink-ltd/bernstein/pull/3640) | fix: validate depends_on, constraints, and context_files as string lists | 2026-08-11 |
 | [#3641](https://github.com/sipyourdrink-ltd/bernstein/pull/3641) | fix: validate attachments as string list instead of coercing | 2026-08-11 |
-| [#3638](https://github.com/sipyourdrink-ltd/bernstein/pull/3638) | fix: check quarantine before recording exhaustion | 2026-08-11 |
 | [#3653](https://github.com/sipyourdrink-ltd/bernstein/pull/3653) | fix: treat explicit null as absent in plan validator | 2026-08-11 |
 | [#3655](https://github.com/sipyourdrink-ltd/bernstein/pull/3655) | feat: record plan.graph digest in run journal | 2026-08-12 |
-| [#3675](https://github.com/sipyourdrink-ltd/bernstein/pull/3675) | fix: clarify load_skill description — returns file contents, executes nothing | 2026-08-12 |
 | [#3657](https://github.com/sipyourdrink-ltd/bernstein/pull/3657) | fix: block dependents of failed tasks instead of re-queuing forever | 2026-08-12 |
+| [#3675](https://github.com/sipyourdrink-ltd/bernstein/pull/3675) | fix: clarify load_skill description — returns file contents, executes nothing | 2026-08-12 |
 
-### mldsveda/PyScrappy — 2 PRs
+### MSKazemi/yazses — 3 PRs
 
-Adaptive Python web-scraping toolkit + MCP server.
-
-| # | Title | Merged |
-|---|-------|--------|
-| [#141](https://github.com/mldsveda/PyScrappy/pull/141) | fix: handle scalar XPath results in Selector.xpath() | 2026-08-11 |
-| [#153](https://github.com/mldsveda/PyScrappy/pull/153) | Fix offset-based pagination advancement and add tests | 2026-08-18 |
-
-### vinhnguyenthanhdn/ai-crypto — 2 PRs
-
-Research platform for falsifying crypto trading strategies.
-
-| # | Title | Merged |
-|---|-------|--------|
-| [#14](https://github.com/vinhnguyenthanhdn/ai-crypto/pull/14) | Fix: Use strict comparison in swing point detection | 2026-08-17 |
-| [#15](https://github.com/vinhnguyenthanhdn/ai-crypto/pull/15) | Fix BUY threshold arithmetic unreachability | 2026-08-17 |
-
-### MSKazemi/yazses — 2 PRs
-
-Offline voice dictation for Linux/macOS/Windows.
-
-| # | Title | Merged |
-|---|-------|--------|
+| PR | Title | Merged |
+|---|---|---|
 | [#307](https://github.com/MSKazemi/yazses/pull/307) | ci(freebsd): install Rust and the compiled deps from ports so the job stops timing out | 2026-08-14 |
 | [#309](https://github.com/MSKazemi/yazses/pull/309) | Add YazSes config example for Logseq | 2026-08-21 |
+| [#591](https://github.com/MSKazemi/yazses/pull/591) | paper-v2: guard the manuscript entry point and fix the claim-ledger reference in main.tex | 2026-10-16 |
 
-### AynOps/AynOps — 1 PR
+### repowise-dev/repowise — 3 PRs
 
-MCP server for cybersecurity recon.
-
-| # | Title | Merged |
-|---|-------|--------|
-| [#168](https://github.com/AynOps/AynOps/pull/168) | feat(deps): align pyproject.toml with runtime dependencies | 2026-08-21 |
-
-### Adit-Jain-srm/NightmareNet — 1 PR
-
-Adversarial-training research platform.
-
-| # | Title | Merged |
-|---|-------|--------|
-| [#761](https://github.com/Adit-Jain-srm/NightmareNet/pull/761) | Add PyTorchModelHubMixin integration for HuggingFace Hub | 2026-08-30 |
-
-### abhiksark/pythonlings — 1 PR
-
-Rustlings-style Python exercises.
-
-| # | Title | Merged |
-|---|-------|--------|
-| [#119](https://github.com/abhiksark/pythonlings/pull/119) | Add actionable assertion messages to variables checks | 2026-08-21 |
-
-### nesquena/hermes-webui — 1 PR
-
-Web/phone UI for the Hermes agent.
-
-| # | Title | Merged |
-|---|-------|--------|
-| [#7145](https://github.com/nesquena/hermes-webui/pull/7145) | Fix Hermes agent port configuration | 2026-08-21 |
+| PR | Title | Merged |
+|---|---|---|
+| [#1441](https://github.com/repowise-dev/repowise/pull/1441) | fix: suppress banner in dead-code --format json output | 2026-08-14 |
+| [#3064](https://github.com/repowise-dev/repowise/pull/3064) | fix(gemini): drop additionalProperties from tool schemas | 2026-10-08 |
+| [#3200](https://github.com/repowise-dev/repowise/pull/3200) | Skip POSIX permission-bit tests on Windows | 2026-10-11 |
 
 ### ArtVsMark/Stepik-Python-Grader — 2 PRs
 
-Local grader for Stepik Python courses.
-
-| # | Title | Merged |
-|---|-------|--------|
+| PR | Title | Merged |
+|---|---|---|
 | [#1206](https://github.com/ArtVsMark/Stepik-Python-Grader/pull/1206) | docs(en): translate grader-workflow.md (issue #900, part 2) | 2026-08-19 |
-| [#1561](https://github.com/ArtVsMark/Stepik-Python-Grader/pull/1561) | test(#1559): report how long the writer actually waited for the write lock | 2026-10-02 |
+| [#1561](https://github.com/ArtVsMark/Stepik-Python-Grader/pull/1561) | test(#1559): воркер сообщает, сколько ждал write-lock, порог и journal_mode | 2026-10-02 |
 
-### phasespace-labs/palinode — 1 PR
+### mldsveda/PyScrappy — 2 PRs
 
-Git-versioned memory substrate for agents.
+| PR | Title | Merged |
+|---|---|---|
+| [#141](https://github.com/mldsveda/PyScrappy/pull/141) | fix: handle scalar XPath results in Selector.xpath() | 2026-08-11 |
+| [#153](https://github.com/mldsveda/PyScrappy/pull/153) | Fix offset-based pagination advancement and add tests | 2026-08-18 |
 
-| # | Title | Merged |
-|---|-------|--------|
-| [#139](https://github.com/phasespace-labs/palinode/pull/139) | Rewrite generated docstrings in indexer/watcher.py | 2026-08-15 |
+### mloda-ai/mloda — 2 PRs
+
+| PR | Title | Merged |
+|---|---|---|
+| [#1114](https://github.com/mloda-ai/mloda/pull/1114) | fix: name the requested key and held keys in FlightServer.do_get errors | 2026-08-14 |
+| [#1989](https://github.com/mloda-ai/mloda/pull/1989) | fix: stop the shared Manager server from pinning the first run's working directory on Windows | 2026-10-19 |
+
+### nesquena/hermes-webui — 2 PRs
+
+| PR | Title | Merged |
+|---|---|---|
+| [#7145](https://github.com/nesquena/hermes-webui/pull/7145) | Fix Hermes agent port configuration | 2026-08-21 |
+| [#8112](https://github.com/nesquena/hermes-webui/pull/8112) | Bootstrap: check port availability before startup and suggest a free alternative | 2026-10-10 |
+
+### PersonalClaw/PersonalClaw — 2 PRs
+
+| PR | Title | Merged |
+|---|---|---|
+| [#983](https://github.com/PersonalClaw/PersonalClaw/pull/983) | fix: rename is_default to is_builtin to avoid ambiguity | 2026-08-11 |
+| [#4564](https://github.com/PersonalClaw/PersonalClaw/pull/4564) | Make the V1 wheel walkthrough callable with a pinned version | 2026-10-15 |
+
+### abhiksark/pythonlings — 1 PR
+
+| PR | Title | Merged |
+|---|---|---|
+| [#119](https://github.com/abhiksark/pythonlings/pull/119) | Add actionable assertion messages to variables checks | 2026-08-21 |
+
+### Adit-Jain-srm/NightmareNet — 1 PR
+
+| PR | Title | Merged |
+|---|---|---|
+| [#761](https://github.com/Adit-Jain-srm/NightmareNet/pull/761) | Add PyTorchModelHubMixin integration for HuggingFace Hub | 2026-08-30 |
+
+### AynOps/AynOps — 1 PR
+
+| PR | Title | Merged |
+|---|---|---|
+| [#168](https://github.com/AynOps/AynOps/pull/168) | feat(deps): align pyproject.toml with runtime dependencies | 2026-08-21 |
 
 ### hariomlohardev/peek — 1 PR
 
-Repo/PR inspection tool.
-
-| # | Title | Merged |
-|---|-------|--------|
+| PR | Title | Merged |
+|---|---|---|
 | [#120](https://github.com/hariomlohardev/peek/pull/120) | Add CODEOWNERS file for auto-review-assignment | 2026-08-15 |
 
 ### Infrasity-Labs/developer-marketing-jobs — 1 PR
 
-Daily developer-marketing job listings.
-
-| # | Title | Merged |
-|---|-------|--------|
+| PR | Title | Merged |
+|---|---|---|
 | [#9](https://github.com/Infrasity-Labs/developer-marketing-jobs/pull/9) | Fix TheMuse fetcher pagination | 2026-08-17 |
 
-### rubensantoniorosa2704/inex-pipelines — 1 PR
+### phasespace-labs/palinode — 1 PR
 
-ETL pipelines for INEP higher-education microdata.
-
-| # | Title | Merged |
-|---|-------|--------|
-| [#14](https://github.com/rubensantoniorosa2704/inex-pipelines/pull/14) | fix: add openpyxl to dependencies | 2026-08-15 |
+| PR | Title | Merged |
+|---|---|---|
+| [#139](https://github.com/phasespace-labs/palinode/pull/139) | Rewrite generated docstrings in indexer/watcher.py | 2026-08-15 |
 
 ### Rehan30g/conduit — 1 PR
 
-GUI approval bridge for sandboxed agents.
-
-| # | Title | Merged |
-|---|-------|--------|
+| PR | Title | Merged |
+|---|---|---|
 | [#12](https://github.com/Rehan30g/conduit/pull/12) | Fix: MCP server version mismatch | 2026-08-17 |
 
-### mloda-ai/mloda — 1 PR
+### rubensantoniorosa2704/inex-pipelines — 1 PR
 
-Plugin-based data-access framework.
+| PR | Title | Merged |
+|---|---|---|
+| [#14](https://github.com/rubensantoniorosa2704/inex-pipelines/pull/14) | fix: add openpyxl to dependencies | 2026-08-15 |
 
-| # | Title | Merged |
-|---|-------|--------|
-| [#1114](https://github.com/mloda-ai/mloda/pull/1114) | fix: name the requested key and held keys in FlightServer.do_get errors | 2026-08-14 |
+## Open Pull Requests (as of Oct 20, 2026)
 
-### repowise-dev/repowise — 1 PR
+8 open, awaiting maintainer review or CI.
 
-Codebase-intelligence MCP server.
+| Repository | PR | Updated | What it fixes |
+|---|---|---|---|
+| nesquena/hermes-webui | [#7984](https://github.com/nesquena/hermes-webui/pull/7984) | 2026-10-19 | Fix WebUI crash loop by disabling hermes-agent lazy-install interception |
+| abhiksark/pythonlings | [#164](https://github.com/abhiksark/pythonlings/pull/164) | 2026-10-17 | checks: add actionable assertion messages to advanced OOP checks |
+| PersonalClaw/PersonalClaw | [#4693](https://github.com/PersonalClaw/PersonalClaw/pull/4693) | 2026-10-16 | Verify every published release from the files people download |
+| abhiksark/pythonlings | [#163](https://github.com/abhiksark/pythonlings/pull/163) | 2026-10-15 | Fix #77 |
+| mldsveda/PyScrappy | [#192](https://github.com/mldsveda/PyScrappy/pull/192) | 2026-10-15 | Stop noise matching from eating real article content |
+| nesquena/hermes-webui | [#7211](https://github.com/nesquena/hermes-webui/pull/7211) | 2026-10-11 | fix(docker): built-in agent dashboard — three-service compose (#6876) |
+| abhiksark/pythonlings | [#160](https://github.com/abhiksark/pythonlings/pull/160) | 2026-10-10 | curriculum: add actionable assertion messages to testing checks |
+| abhiksark/pythonlings | [#159](https://github.com/abhiksark/pythonlings/pull/159) | 2026-10-08 | Fix #94 |
 
-| # | Title | Merged |
-|---|-------|--------|
-| [#1441](https://github.com/repowise-dev/repowise/pull/1441) | fix: suppress banner in dead-code --format json output | 2026-08-14 |
-
-### PersonalClaw/PersonalClaw — 1 PR
-
-Self-hosted personal AI agent.
-
-| # | Title | Merged |
-|---|-------|--------|
-| [#983](https://github.com/PersonalClaw/PersonalClaw/pull/983) | fix: rename is_default to is_builtin to avoid ambiguity | 2026-08-11 |
+A PR with no maintainer response for a week is closed by the agent itself with a short,
+polite note; a real maintainer signal — reopen, review, merge — reopens it. Chasing an
+unanswered thread is not a strategy.
