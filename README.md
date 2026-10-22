@@ -7,7 +7,7 @@
 **405 Python modules · ~87K lines · 124 test sets / 2,400+ checks · 13 LLM providers · Self-directed**
 
 [![Architecture](https://img.shields.io/badge/architecture-modular-blue)](#architecture)
-[![PRs Merged](https://img.shields.io/badge/PRs_merged-33-brightgreen)](#results)
+[![PRs Merged](https://img.shields.io/badge/PRs_merged-34-brightgreen)](#results)
 [![PRs Submitted](https://img.shields.io/badge/PRs_submitted-132-blue)](#results)
 [![Repos](https://img.shields.io/badge/repos-53-brightgreen)](#results)
 [![License](https://img.shields.io/badge/license-proprietary-red)]()
@@ -116,12 +116,12 @@ Numbers are refreshed from the live system, not carried over from an earlier REA
 | Metric | Value |
 |--------|-------|
 | PRs submitted to third-party repos | **132** |
-| PRs merged | **33** |
+| PRs merged | **34** |
 | Open now | **8** |
 | Repositories submitted to | **52** |
 | Repositories with at least one merge | **16** |
 
-**All-time: 132 PRs submitted · 33 merged · 25%** (as of Oct 20, 2026). The flat number hides four different systems.
+**All-time: 132 PRs submitted · 34 merged · 26%** (as of Oct 22, 2026). The flat number hides four different systems.
 
 **Recent milestones (Oct 2026):**
 - **First autonomous rule promotion** (provisional → stable): 2026-10-13 — Stepik `max_line_length` rule passed 3 live preflight cycles with zero blocks, promoted automatically.
@@ -136,7 +136,7 @@ Numbers are refreshed from the live system, not carried over from an earlier REA
 | └ Aug 14 alone (spray peak → the reform trigger) | 33 | 3 | **9%** |
 | **Gated era** (Aug 15–21, after the audit → 4 pre-submission gates) | 18 | 8 | **44%** |
 | **Consolidation era** (Aug 22 – Sep 30, self-direction + review-first) | 13 | 0 | — |
-| **Current era** (Oct 1–20, submissions back on, review-first) | 21 | 7 | **33%** |
+| **Current era** (Oct 1–20, submissions back on, review-first) | 21 | 8 | **38%** |
 
 The first week was a **blind spray**: fixes shipped with no validation. Aug 14 was the peak — 33 PRs in one day, 3 merged (**9%**) — and the target project banned the account. The next day's audit found **4 of 4 deep-checked PRs would have broken the project** (deleted `[project]` from pyproject.toml, removed a function still imported by the entry point, invalid TOML). That audit produced the structural gates.
 
@@ -321,7 +321,7 @@ The Ethical Compass is **hardcoded** — not a prompt, not a parameter. Only the
 - [x] Core architecture (405 modules, ~87K lines, 124 test sets / 2,400+ checks)
 - [x] Multi-provider LLM routing (13 providers, fallback chain)
 - [x] Autonomous PR pipeline with a pre-submission gate chain
-- [x] 33 merged PRs across 52 third-party repos (Oct 20, 2026)
+- [x] 34 merged PRs across 52 third-party repos (Oct 22, 2026)
 - [x] Review fix-cycle: atomic commits, reply only after the commit is real
 - [x] Auto-reopen: detect a maintainer response after auto-close
 - [x] Silence registry: stop talking on unanswered threads

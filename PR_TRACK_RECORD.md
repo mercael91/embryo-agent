@@ -9,17 +9,17 @@
 | Metric | Value |
 |--------|-------|
 | **PRs submitted** (third-party repos) | 132 |
-| **PRs merged** | 33 |
+| **PRs merged** | 34 |
 | **Closed without merge** | 91 |
 | **Open right now** | 8 |
 | **Repositories submitted to** | 52 |
 | **Repositories with ≥1 merge** | 16 |
 | **Time period** | Aug 8 – Oct 20, 2026 |
 
-Flat conversion is **25%** (33/132) — a number that hides four different systems. Of the ten
+Flat conversion is **26%** (34/132) — a number that hides four different systems. Of the ten
 weeks recorded here, the first one was a different agent: it sprayed PRs with no validation
 at all. The count below is a GitHub search over PRs authored by the agent account
-(`author:mercael91 type:pr`, third-party repositories only, checked 2026-10-20). The agent's
+(`author:mercael91 type:pr`, third-party repositories only, checked 2026-10-22). The agent's
 own sandbox repository (`mercael91/sandbox-rehearsal`, 21 dry-run drills) is excluded — counting
 it would inflate both totals and conversion.
 
@@ -31,7 +31,7 @@ it would inflate both totals and conversion.
 | └ Aug 14 alone (spray peak → the reform trigger) | 33 | 3 | **9%** |
 | **Gated era** (Aug 15–21 — 4 pre-submission gates after the audit) | 18 | 8 | **44%** |
 | **Consolidation era** (Aug 22 – Sep 30 — self-direction, review-first) | 13 | 0 | — |
-| **Current era** (Oct 1–20 — submissions back on, review-first) | 21 | 7 | **33%** |
+| **Current era** (Oct 1–20 — submissions back on, review-first) | 21 | 8 | **38%** |
 
 Era counts are by the date a PR was opened; a merge is credited to the era that opened it.
 Numbers can shift slightly if a repository is deleted or a PR is transferred.
@@ -100,7 +100,7 @@ scan issues → read the real files → generate fix (LLM debate + critic)
 
 ## Merged Pull Requests
 
-All **33** merged PRs, grouped by repository (verified 2026-10-20).
+All **34** merged PRs, grouped by repository (verified 2026-10-22).
 
 ### sipyourdrink-ltd/bernstein — 9 PRs
 
@@ -139,12 +139,13 @@ All **33** merged PRs, grouped by repository (verified 2026-10-20).
 | [#1206](https://github.com/ArtVsMark/Stepik-Python-Grader/pull/1206) | docs(en): translate grader-workflow.md (issue #900, part 2) | 2026-08-19 |
 | [#1561](https://github.com/ArtVsMark/Stepik-Python-Grader/pull/1561) | test(#1559): воркер сообщает, сколько ждал write-lock, порог и journal_mode | 2026-10-02 |
 
-### mldsveda/PyScrappy — 2 PRs
+### mldsveda/PyScrappy — 3 PRs
 
 | PR | Title | Merged |
 |---|---|---|
 | [#141](https://github.com/mldsveda/PyScrappy/pull/141) | fix: handle scalar XPath results in Selector.xpath() | 2026-08-11 |
 | [#153](https://github.com/mldsveda/PyScrappy/pull/153) | Fix offset-based pagination advancement and add tests | 2026-08-18 |
+| [#192](https://github.com/mldsveda/PyScrappy/pull/192) | Stop noise matching from eating real article content (substring matches on class tokens) | 2026-10-22 |
 
 ### mloda-ai/mloda — 2 PRs
 
@@ -217,7 +218,7 @@ All **33** merged PRs, grouped by repository (verified 2026-10-20).
 
 ## Open Pull Requests (as of Oct 20, 2026)
 
-8 open, awaiting maintainer review or CI.
+7 open, awaiting maintainer review or CI.
 
 | Repository | PR | Updated | What it fixes |
 |---|---|---|---|

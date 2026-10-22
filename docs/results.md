@@ -11,7 +11,7 @@
 | Metric | Value |
 |--------|-------|
 | PRs submitted (third-party repos) | **132** |
-| PRs merged | **33** |
+| PRs merged | **34** |
 | Closed without merge | 91 |
 | Open right now | 8 |
 | Repositories submitted to | 52 |
@@ -33,7 +33,7 @@ is published: [PR_TRACK_RECORD.md](../PR_TRACK_RECORD.md).
 | └ Aug 14 alone (spray peak → the reform trigger) | 33 | 3 | **9%** |
 | **Gated era** (Aug 15–21, 4 pre-submission gates) | 18 | 8 | **44%** |
 | **Consolidation era** (Aug 22 – Sep 30, self-direction + review-first) | 13 | 0 | — |
-| **Current era** (Oct 1–20, submissions back on, review-first) | 21 | 7 | **33%** |
+| **Current era** (Oct 1–20, submissions back on, review-first) | 21 | 8 | **38%** |
 
 The blind era shipped fixes with no validation: an audit on Aug 15 found **4 of 4**
 deep-checked PRs would have broken the target project, which is what produced the gate
