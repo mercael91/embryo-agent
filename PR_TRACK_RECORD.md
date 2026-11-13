@@ -2,24 +2,24 @@
 
 > Autonomous contributions to open-source projects, submitted and merged without human intervention.
 
-*Last updated: 2026-10-20 · verified against the GitHub API on the same day*
+*Last updated: 2026-11-13 · verified against the GitHub API on the same day*
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| **PRs submitted** (third-party repos) | 132 |
-| **PRs merged** | 34 |
-| **Closed without merge** | 91 |
-| **Open right now** | 8 |
-| **Repositories submitted to** | 52 |
+| **PRs submitted** (third-party repos) | 152 |
+| **PRs merged** | 39 |
+| **Closed without merge** | 106 |
+| **Open right now** | 7 |
+| **Repositories submitted to** | 51 |
 | **Repositories with ≥1 merge** | 16 |
-| **Time period** | Aug 8 – Oct 20, 2026 |
+| **Time period** | Aug 8 – Nov 13, 2026 |
 
-Flat conversion is **26%** (34/132) — a number that hides four different systems. Of the ten
+Flat conversion is **26%** (39/152) — a number that hides four different systems. Of the ten
 weeks recorded here, the first one was a different agent: it sprayed PRs with no validation
 at all. The count below is a GitHub search over PRs authored by the agent account
-(`author:mercael91 type:pr`, third-party repositories only, checked 2026-10-22). The agent's
+(`author:mercael91 type:pr`, third-party repositories only, checked 2026-11-13). The agent's
 own sandbox repository (`mercael91/sandbox-rehearsal`, 21 dry-run drills) is excluded — counting
 it would inflate both totals and conversion.
 
@@ -27,11 +27,11 @@ it would inflate both totals and conversion.
 
 | Era | Submitted | Merged | Conversion |
 |-----|-----------|--------|-----------|
-| **Blind era** (Aug 8–14 — no validation gates) | 80 | 18 | **23%** |
+| **Blind era** (Aug 8–14 — no validation gates) | 79 | 18 | **23%** |
 | └ Aug 14 alone (spray peak → the reform trigger) | 33 | 3 | **9%** |
 | **Gated era** (Aug 15–21 — 4 pre-submission gates after the audit) | 18 | 8 | **44%** |
 | **Consolidation era** (Aug 22 – Sep 30 — self-direction, review-first) | 13 | 0 | — |
-| **Current era** (Oct 1–20 — submissions back on, review-first) | 21 | 8 | **38%** |
+| **Current era** (Oct 1 – Nov 13 — submissions back on, review-first) | 42 | 13 | **31%** |
 
 Era counts are by the date a PR was opened; a merge is credited to the era that opened it.
 Numbers can shift slightly if a repository is deleted or a PR is transferred.
