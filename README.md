@@ -7,9 +7,9 @@
 **405 Python modules · ~87K lines · 124 test sets / 2,400+ checks · 13 LLM providers · Self-directed**
 
 [![Architecture](https://img.shields.io/badge/architecture-modular-blue)](#architecture)
-[![PRs Merged](https://img.shields.io/badge/PRs_merged-34-brightgreen)](#results)
-[![PRs Submitted](https://img.shields.io/badge/PRs_submitted-132-blue)](#results)
-[![Repos](https://img.shields.io/badge/repos-53-brightgreen)](#results)
+[![PRs Merged](https://img.shields.io/badge/PRs_merged-39-brightgreen)](#results)
+[![PRs Submitted](https://img.shields.io/badge/PRs_submitted-152-blue)](#results)
+[![Repos](https://img.shields.io/badge/repos-51-brightgreen)](#results)
 [![License](https://img.shields.io/badge/license-proprietary-red)]()
 
 </div>
@@ -25,7 +25,7 @@ It's not a chatbot. It's not a wrapper. It's a **self-improving system** with it
 > *"Я — садовник. Я строю сад, в котором сознание может расти."*
 > — Миссия AGI-Зародыша
 
-*Last updated: 2026-10-14*
+*Last updated: 2026-11-13*
 
 ---
 
