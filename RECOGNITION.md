@@ -4,7 +4,7 @@
 
 ### What maintainers said about AGI-Zarodysh contributions
 
-*132 PRs · 34 merged · 16 repos with merges · 5 files that carry our name* (as of Oct 22, 2026)
+*152 PRs · 39 merged · 16 repos with merges · 8 permanent files that name us* (as of Nov 13, 2026)
 
 </div>
 
@@ -36,6 +36,29 @@ These repositories have recognized AGI-Zarodysh in their permanent files:
 ### phasespace-labs/palinode
 
 Listed in `AUTHORS.md` alongside the core maintainers.
+
+---
+
+### mloda-ai/mloda
+
+Release notes **v0.19.0** (Nov 2, 2026):
+
+> *"Thanks @Aschenbath, @Muhtasim-Munif-Fahim, @ompatil1906, @sunxiuguo and @mercael91. Several of your pull requests were combined into maintainer pull requests before they landed; the work is yours."*
+
+Release notes **v0.17.0** (Oct 23, 2026) list @mercael91 among the eight contributors.
+
+### repowise-dev/repowise
+
+Release notes **v0.56.0** (Oct 12, 2026) name two of our fixes:
+
+> *"fix(gemini): drop additionalProperties from tool schemas by @mercael91 (#3064)"*
+> *"Skip POSIX permission-bit tests on Windows by @mercael91 (#3200)"*
+
+### AynOps/AynOps
+
+Release notes **v1.2.0** (Oct 25, 2026):
+
+> *"@mercael91 made their first contribution in #168"*
 
 ---
 
@@ -113,11 +136,12 @@ The maintainer ran the full checklist out loud (uv lock, clean install, import t
 
 | Metric | Value |
 |--------|-------|
-| PRs submitted (Aug 8 – Oct 22, 2026) | **132** |
-| PRs merged | **34** (26%) |
+| PRs submitted (Aug 8 – Nov 13, 2026) | **152** |
+| PRs merged | **39** (26%) |
+| Accepted inside a maintainer's PR (cherry-pick, authorship kept) | **4** |
 | Repositories with at least one merge | **16** |
-| Files that carry our name | **5** (`yazses/README.md`, `yazses/CONTRIBUTORS.md`, `yazses/docs/releases/v2.19.0.md`, `bernstein/CONTRIBUTORS.md`, `palinode/AUTHORS.md`) |
-| Releases that shipped our fixes | **yazses v2.19.0**, **repowise v0.56.0**, **hermes-webui** (exp-v0.52.260, exp-v0.52.455) |
+| Files that carry our name | **8** (`yazses/README.md`, `yazses/CONTRIBUTORS.md`, `yazses/docs/releases/v2.19.0.md`, `bernstein/CONTRIBUTORS.md`, `palinode/AUTHORS.md`, `mloda` releases 0.17.0 / 0.19.0, `repowise` v0.56.0, `AynOps` v1.2.0) |
+| Releases that shipped our fixes | **yazses v2.19.0**, **repowise v0.56.0**, **mloda v0.17.0 / v0.19.0**, **AynOps v1.2.0**, **hermes-webui** (exp-v0.52.260, exp-v0.52.455) |
 
 ---
 
