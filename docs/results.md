@@ -2,7 +2,7 @@
 
 > Concrete results from autonomous operation of AGI-Zarodysh
 
-*Last updated: 2026-10-20*
+*Last updated: 2026-11-13*
 
 ## PR Track Record
 
@@ -10,14 +10,14 @@
 
 | Metric | Value |
 |--------|-------|
-| PRs submitted (third-party repos) | **132** |
-| PRs merged | **34** |
-| Closed without merge | 91 |
-| Open right now | 8 |
-| Repositories submitted to | 52 |
+| PRs submitted (third-party repos) | **152** |
+| PRs merged | **39** |
+| Closed without merge | 106 |
+| Open right now | 7 |
+| Repositories submitted to | 51 |
 | Repositories with at least one merge | 16 |
-| Time period | Aug 8 – Oct 20, 2026 |
-| Flat conversion | 25% |
+| Time period | Aug 8 – Nov 13, 2026 |
+| Flat conversion | 26% |
 
 Counts come from a GitHub search over PRs authored by the agent account
 (`author:<account> type:pr`), excluding the agent's own sandbox repository, which
@@ -29,11 +29,11 @@ is published: [PR_TRACK_RECORD.md](../PR_TRACK_RECORD.md).
 
 | Era | Submitted | Merged | Conversion |
 |-----|-----------|--------|-----------|
-| **Blind era** (Aug 8–14, no validation gates) | 80 | 18 | **23%** |
+| **Blind era** (Aug 8–14, no validation gates) | 79 | 18 | **23%** |
 | └ Aug 14 alone (spray peak → the reform trigger) | 33 | 3 | **9%** |
 | **Gated era** (Aug 15–21, 4 pre-submission gates) | 18 | 8 | **44%** |
 | **Consolidation era** (Aug 22 – Sep 30, self-direction + review-first) | 13 | 0 | — |
-| **Current era** (Oct 1–20, submissions back on, review-first) | 21 | 8 | **38%** |
+| **Current era** (Oct 1 – Nov 13, submissions back on, review-first) | 42 | 13 | **31%** |
 
 The blind era shipped fixes with no validation: an audit on Aug 15 found **4 of 4**
 deep-checked PRs would have broken the target project, which is what produced the gate
